@@ -104,6 +104,16 @@ const schemaData = {
             });
           }
         });
+
+        // Buka otomatis popup set/reset password jika ada token dari link email
+        if (
+          window.location.hash &&
+          (window.location.hash.includes("recovery_token") ||
+            window.location.hash.includes("invite_token") ||
+            window.location.hash.includes("confirmation_token"))
+        ) {
+          window.netlifyIdentity.open();
+        }
       }
     </script>
   </body>

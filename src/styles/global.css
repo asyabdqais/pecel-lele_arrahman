@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #211D1B;
+    background-color: #FFF9F0;
+  }
+
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #FFF9F0;
+    color: #211D1B;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .font-editorial {
+    font-family: 'DM Serif Display', Georgia, serif;
+    letter-spacing: -0.015em;
+  }
+}
+
+@layer utilities {
+  .tag-badge {
+    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-gradient-to-r from-brand-gold/15 to-brand-red/10 border border-brand-gold/30 text-brand-deep shadow-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold bg-complementary-cta text-white transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold bg-white/90 hover:bg-brand-surface text-brand-dark border border-brand-border transition-all duration-300 shadow-sm hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .editorial-frame {
+    @apply relative rounded-2xl overflow-hidden p-2.5 bg-gradient-to-br from-white via-[#FCF8F2] to-brand-surface border border-brand-border/90 shadow-editorial transition-all duration-500 hover:shadow-hoverCard;
+  }
+}
+
+/* ========================================================
+   Professional Smooth Scroll Reveal & Micro-Animations
+   ======================================================== */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger Delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Subtle pulse for floating elements */
+@keyframes subtle-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 20px -2px rgba(185, 31, 36, 0.25);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px -2px rgba(185, 31, 36, 0.4);
+  }
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 3s ease-in-out infinite;
+}
+
+/* Menu Card transition */
+.menu-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+}
+
+/* Respect user accessibility preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .animate-subtle-pulse {
+    animation: none !important;
+  }
+}

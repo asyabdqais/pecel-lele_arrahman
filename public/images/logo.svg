@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" class="w-full h-full">
+  <circle cx="24" cy="24" r="22" fill="#B91C1C"/>
+  <circle cx="24" cy="24" r="19" stroke="#FDE68A" stroke-width="1.5" stroke-dasharray="3 2" fill="none"/>
+  <!-- Stylized Lele & Chili motif -->
+  <path d="M14 26C14 20 20 15 28 15C32 15 35 17 35 17C35 17 33 21 29 23C25 25 21 25 18 29C16 31 15 34 14 34C13 34 14 28 14 26Z" fill="#FDE68A"/>
+  <!-- Whisker -->
+  <path d="M29 17C32 16 36 17 37 19" stroke="#FEF3C7" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M29 19C33 20 36 22 36 24" stroke="#FEF3C7" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Chili pepper accent -->
+  <path d="M18 24C19 21 24 19 28 20C27 22 24 25 21 27C19.5 28 18 26 18 24Z" fill="#EF4444"/>
+  <path d="M28 20C29 19 30 18 31 19" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="28" cy="18" r="1" fill="#78350F"/>
+</svg>
+

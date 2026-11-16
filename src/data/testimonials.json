@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "id": "testi-1",
+      "name": "Pelanggan Setia",
+      "role": "Pengendara Jalur Pekanbaru – Bangkinang",
+      "text": "Enak buat santai.. jangan lupa mampir ya bagi pengendara roda dua dan empat.. bagus juga buat istirahat sejenak.",
+      "rating": 5
+    },
+    {
+      "id": "testi-2",
+      "name": "Pengunjung Wisata Kuliner",
+      "role": "Keluarga & Rombongan Perjalanan",
+      "text": "MANTAP. Makanan di sini enak-enak, ramah di kantong.. cocok untuk tempat istirahat perjalanan sambil santai menikmati makanan khas.",
+      "rating": 5
+    }
+  ]
+}
+

@@ -1,0 +1,128 @@
+---
+import { restaurantData, createWhatsAppOrderUrl } from '../data/restaurant';
+
+const orderUrl = createWhatsAppOrderUrl();
+---
+
+<section id="beranda" class="relative pt-10 pb-16 md:py-20 lg:py-24 bg-complementary-warm border-b border-brand-border/60 overflow-hidden">
+  <!-- Subtle complementary ambient glow -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#FBF1E2]/40 to-transparent pointer-events-none"></div>
+
+  <!-- Centered container with comfortable horizontal margins -->
+  <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        
+      <!-- Left Content Column (7 cols) -->
+      <div class="lg:col-span-7 flex flex-col items-start text-left reveal-on-scroll">
+        
+        <!-- Category Badge -->
+        <div class="tag-badge mb-5">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-red animate-ping opacity-75"></span>
+          <span>{restaurantData.badge}</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="font-editorial text-3xl sm:text-4xl lg:text-5xl text-brand-dark leading-[1.2] tracking-tight">
+          Rasa Nikmat, Harga Bersahabat, <span class="text-brand-red bg-clip-text text-transparent bg-gradient-to-r from-brand-red via-[#A51B20] to-[#861C20]">Bikin Ketagihan!</span>
+        </h1>
+
+        <!-- Welcome Note & Description -->
+        <div class="mt-5 space-y-3 text-brand-muted text-sm sm:text-base leading-relaxed max-w-xl">
+          <p>
+            {restaurantData.welcomeDescription[0]}
+          </p>
+        </div>
+
+        <!-- 3 CTA Buttons -->
+        <div class="mt-8 flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto">
+          <!-- Button 1: Pesan Sekarang -->
+          <a
+            href={orderUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary group"
+          >
+            <svg class="w-4 h-4 fill-current group-hover:scale-110 transition-transform duration-200" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+            <span>Pesan Sekarang</span>
+          </a>
+
+          <!-- Button 2: Lihat Menu -->
+          <a
+            href="#menu"
+            class="btn-secondary group"
+          >
+            <svg class="w-4 h-4 text-brand-dark group-hover:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            <span>Lihat Menu</span>
+          </a>
+
+          <!-- Button 3: Lokasi Warung -->
+          <a
+            href="#kontak"
+            class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-medium text-brand-muted hover:text-brand-dark hover:bg-white/80 transition-all duration-200"
+          >
+            <svg class="w-4 h-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Lokasi Warung</span>
+          </a>
+        </div>
+
+        <!-- Authentic Highlights — 3 key facts, compact -->
+        <div class="mt-8 pt-5 border-t border-brand-border/80 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-brand-muted">
+          <div class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-red flex-shrink-0"></span>
+            <span class="font-medium text-brand-dark">Bahan Segar Harian</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0"></span>
+            <span class="font-medium text-brand-dark">Sambal Uleg Dadakan</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-red flex-shrink-0"></span>
+            <span class="font-medium text-brand-dark">Buka 10.00–22.00 WIB</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Showcase Image Column (5 cols) -->
+      <div class="lg:col-span-5 relative mt-6 lg:mt-0 reveal-on-scroll delay-200">
+        <div class="relative mx-auto max-w-md lg:max-w-none">
+          
+          <!-- Editorial Framed Food Photograph -->
+          <div class="editorial-frame group">
+            <div class="relative rounded-xl overflow-hidden bg-brand-dark/5">
+              <img
+                src={restaurantData.heroImage || "/images/hero-pecel-lele.jpg"}
+                alt="Hidangan Pecel Lele Spesial Al Rahman dengan Ikan Gurih Renyah, Sambal Uleg Asli dan Lalapan Segar"
+                class="w-full h-[340px] sm:h-[400px] object-cover group-hover:scale-105 transition-transform duration-700"
+                width="600"
+                height="400"
+                loading="eager"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+            
+            <!-- Understated Caption -->
+            <div class="p-3 bg-transparent text-left">
+              <div class="flex items-center justify-between">
+                <span class="font-editorial text-base text-brand-dark">Pecel Lele Spesial Sambal Uleg</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-red bg-brand-red/10 px-2.5 py-0.5 rounded-full">Menu Utama</span>
+              </div>
+              <p class="text-xs text-brand-muted mt-1">
+                Goreng gurih renyah berpadu racikan sambal uleg cabai segar khas warung tenda KM 24.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

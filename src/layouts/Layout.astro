@@ -1,0 +1,111 @@
+---
+import '../styles/global.css';
+import { restaurantData } from '../data/restaurant';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = `${restaurantData.name} - ${restaurantData.tagline}`,
+  description = `${restaurantData.name}: Spesialis Pecel Lele gurih renyah, Ayam Penyet sambal uleg pedas mantap, dan Bebek Goreng bumbu rempah di ${restaurantData.locationKm}. Buka setiap hari 10.00 - 22.00 WIB.`,
+  image = '/images/hero-pecel-lele.jpg'
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://pecellelealrahman.com');
+const imageURL = new URL(image, canonicalURL).toString();
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": restaurantData.name,
+  "description": description,
+  "image": imageURL,
+  "telephone": "+6281275070044",
+  "servesCuisine": "Indonesian",
+  "priceRange": "Rp 5.000 - Rp 30.000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": restaurantData.address,
+    "addressLocality": "Kampar / Pekanbaru",
+    "addressRegion": "Riau",
+    "addressCountry": "ID"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "0.4150",
+    "longitude": "101.2780"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+      ],
+      "opens": "10:00",
+      "closes": "22:00"
+    }
+  ],
+  "url": "https://pecellelealrahman.com",
+  "sameAs": [
+    restaurantData.instagramUrl
+  ]
+};
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="theme-color" content="#B91F24" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content={restaurantData.name} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={imageURL} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+    <!-- Netlify Identity Widget for Decap CMS -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body class="bg-[#FFF9F0] text-brand-dark font-sans selection:bg-brand-red selection:text-white">
+    <slot />
+
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function(user) {
+          if (!user) {
+            window.netlifyIdentity.on("login", function() {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+

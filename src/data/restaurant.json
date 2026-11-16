@@ -1,0 +1,34 @@
+{
+  "name": "Pecel Lele Al Rahman",
+  "tagline": "Rasa Nikmat, Harga Bersahabat, Bikin Ketagihan!",
+  "badge": "Kuliner Nusantara Autentik",
+  "heroImage": "/images/hero-pecel-lele.jpg",
+  "aboutImage": "/images/about-warung.jpg",
+  "welcomeHeading": "Santap Hangat & Istirahat Nyaman di Jalur Lintas",
+  "welcomeDescription": [
+    "Warung tenda autentik di KM 24 Pekanbaru – Bangkinang yang menyajikan pecel lele garing gurih, ayam penyet cabai rawit melimpah, dan bebek rempah berpadu sambal uleg dadakan.",
+    "Tempat singgah andalan bagi pengendara dan rombongan keluarga untuk melepas lelah sambil menikmati hidangan lezat berharga ramah di kantong."
+  ],
+  "phone": "081275070044",
+  "phoneFormatted": "0812-7507-0044",
+  "whatsappNumber": "6281275070044",
+  "address": "Jl. Raya Pekanbaru - Bangkinang KM 24",
+  "locationKm": "KM 24 Pekanbaru - Bangkinang",
+  "locationDescription": "Berada tepat di tepi jalan lintas utama, mudah diakses baik dari arah Pekanbaru maupun Bangkinang. Dilengkapi area parkir leluasa untuk motor dan mobil.",
+  "instagramHandle": "@pecel_lele_al.rahman",
+  "instagramUrl": "https://www.instagram.com/pecel_lele_al.rahman",
+  "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pecel+Lele+Al+Rahman+KM+24+Pekanbaru+-+Bangkinang",
+  "openingHours": "Setiap Hari, 10.00 – 22.00 WIB",
+  "vision": "Menjadi tempat singgah kuliner favorit masyarakat dengan konsistensi cita rasa autentik dan pelayanan yang ramah.",
+  "missions": [
+    "Menjaga kesegaran bahan lele, ayam, bebek, dan lalapan setiap hari.",
+    "Meracik sambal uleg khas tradisional dengan cabai segar tanpa bahan pengawet.",
+    "Menyediakan tempat makan yang bersih dan area parkir yang leluasa bagi pengendara.",
+    "Memberikan pelayanan sigap dengan harga jujur dan terjangkau."
+  ],
+  "principles": [
+    "Bahan Segar Pilihan Setiap Hari",
+    "Racikan Sambal Uleg Dadakan",
+    "Parkir Luas & Ramah Rombongan"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "items": [
+    {
+      "id": "pecel-lele",
+      "name": "Pecel Lele Spesial",
+      "category": "utama",
+      "categoryLabel": "Menu Utama",
+      "badge": "Bestseller",
+      "description": "Lele goreng gurih renyah dengan nasi putih hangat, lalapan segar (timun, kemangi, kol), dan racikan sambal khas warung tenda.",
+      "image": "/images/uploads/pecel-lele.jpg"
+    },
+    {
+      "id": "ayam-penyet",
+      "name": "Ayam Penyet Sambal Uleg",
+      "category": "utama",
+      "categoryLabel": "Menu Utama",
+      "badge": "Favorit Pedas",
+      "description": "Ayam goreng empuk dibalut sambal uleg cabai rawit pedas menggelegar dan lalapan segar komplit.",
+      "image": "/images/menu/ayam-penyet.jpg"
+    },
+    {
+      "id": "bebek-goreng",
+      "name": "Bebek Goreng Rempah",
+      "category": "utama",
+      "categoryLabel": "Menu Utama",
+      "badge": "Gurih Renyah",
+      "description": "Bebek goreng bumbu rempah kuning gurih dengan tekstur daging empuk, disajikan bersama sambal dan lalapan pilihan.",
+      "image": "/images/menu/bebek-goreng.jpg"
+    },
+    {
+      "id": "ayam-goreng-kuning",
+      "name": "Ayam Goreng Bumbu Kuning",
+      "category": "utama",
+      "categoryLabel": "Menu Utama",
+      "badge": "",
+      "description": "Ayam goreng dengan bumbu kuning kaya rempah yang meresap sempurna, disajikan hangat dengan lalapan dan sambal.",
+      "image": "/images/menu/ayam-goreng.jpg"
+    },
+    {
+      "id": "tahu-tempe-goreng",
+      "name": "Tahu & Tempe Goreng",
+      "category": "pelengkap",
+      "categoryLabel": "Menu Pelengkap",
+      "badge": "",
+      "description": "Tahu dan tempe goreng renyah bumbu bawang ketumbar gurih, pendamping sempurna aneka sambal uleg.",
+      "image": "/images/menu/tahu-tempe.jpg"
+    },
+    {
+      "id": "ati-ampela-goreng",
+      "name": "Ati Ampela Goreng",
+      "category": "pelengkap",
+      "categoryLabel": "Menu Pelengkap",
+      "badge": "",
+      "description": "Sate ati ampela ungkep bumbu rempah tradisional yang digoreng garing, lezat dicocol sambal uleg.",
+      "image": "/images/menu/ati-ampela.jpg"
+    },
+    {
+      "id": "kol-goreng-crispy",
+      "name": "Kol Goreng Crispy",
+      "category": "pelengkap",
+      "categoryLabel": "Menu Pelengkap",
+      "badge": "",
+      "description": "Kol goreng manis gurih renyah dengan sedikit taburan garam, pelengkap favorit penggemar lalapan.",
+      "image": "/images/menu/kol-goreng.jpg"
+    },
+    {
+      "id": "es-teh-manis",
+      "name": "Es Teh Manis Melati",
+      "category": "minuman",
+      "categoryLabel": "Minuman",
+      "badge": "",
+      "description": "Seduhan teh melati wangi khas warung tenda disajikan dingin manis menyegarkan dahaga perjalanan.",
+      "image": "/images/menu/es-teh.jpg"
+    },
+    {
+      "id": "es-jeruk-peras",
+      "name": "Es Jeruk Peras Murni",
+      "category": "minuman",
+      "categoryLabel": "Minuman",
+      "badge": "",
+      "description": "Perasan buah jeruk segar murni kaya vitamin C berpadu es batu dingin yang melepas dahaga seketika.",
+      "image": "/images/menu/es-jeruk.jpg"
+    },
+    {
+      "id": "kopi-hitam",
+      "name": "Kopi Hitam / Kopi Susu",
+      "category": "minuman",
+      "categoryLabel": "Minuman",
+      "badge": "",
+      "description": "Seduhan kopi mantap khas warung untuk menemani santai dan mengembalikan kesegaran setelah berkendara jauh.",
+      "image": "/images/menu/kopi.jpg"
+    }
+  ]
+}

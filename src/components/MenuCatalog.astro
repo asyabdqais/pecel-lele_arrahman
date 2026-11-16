@@ -1,0 +1,130 @@
+---
+import { menuCategories, menuItems } from '../data/menu';
+import { createWhatsAppOrderUrl } from '../data/restaurant';
+import MenuCard from './MenuCard.astro';
+
+const cateringOrderUrl = createWhatsAppOrderUrl('Pemesanan Katering / Porsi Banyak');
+---
+
+<section id="menu" class="py-16 md:py-24 bg-[#FAF4EB] border-b border-brand-border/60 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto flex flex-col items-center reveal-on-scroll">
+      
+      <!-- Badge -->
+      <div class="tag-badge mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+        <span>Katalog Sajian</span>
+      </div>
+
+      <!-- Heading (DM Serif Display) -->
+      <h2 class="font-editorial text-3xl sm:text-4xl lg:text-5xl text-brand-dark tracking-tight">
+        Pilihan Menu Favorit
+      </h2>
+
+      <!-- Subtitle -->
+      <p class="mt-4 text-sm sm:text-base text-brand-muted leading-relaxed max-w-xl">
+        Nikmati beragam menu lezat dari Pecel Lele Al Rahman, diracik segar setiap hari dengan sambal uleg khas warung tenda.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-full bg-white border border-brand-border shadow-sm max-w-xl">
+        {menuCategories.map((cat, idx) => (
+          <button
+            type="button"
+            class:list={[
+              "filter-btn px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-red active:scale-95",
+              idx === 0
+                ? "bg-brand-red text-white shadow-sm"
+                : "text-brand-muted hover:text-brand-dark hover:bg-brand-surface"
+            ]}
+            data-filter={cat.id}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
+    </div>
+
+    <!-- Menu Grid with Scroll Reveal -->
+    <div
+      id="menu-grid"
+      class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-opacity duration-300"
+    >
+      {menuItems.map((item, idx) => (
+        <div class:list={["reveal-on-scroll", idx % 3 === 1 ? "delay-150" : idx % 3 === 2 ? "delay-300" : ""]}>
+          <MenuCard item={item} />
+        </div>
+      ))}
+    </div>
+
+    <!-- Empty State -->
+    <div id="no-menu-found" class="hidden text-center py-16">
+      <p class="text-brand-muted font-medium text-sm">Menu untuk kategori ini belum tersedia.</p>
+    </div>
+
+    <!-- Catering Note with Complementary Gradient -->
+    <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-white via-brand-surface to-[#FDF4E7] border border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-editorial reveal-on-scroll delay-200">
+      <div>
+        <h4 class="font-editorial text-base sm:text-lg text-brand-dark">Pemesanan Porsi Banyak atau Acara?</h4>
+        <p class="text-xs sm:text-sm text-brand-muted mt-0.5">Kami melayani pesanan katering, rombongan wisata, dan bekal perjalanan jalur lintas.</p>
+      </div>
+      <a
+        href={cateringOrderUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary flex-shrink-0"
+      >
+        <span>Konsultasi Pesanan Rombongan</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Tab Filter Logic with Smooth Fade
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const menuCards = document.querySelectorAll<HTMLElement>('.menu-card');
+  const noMenuFound = document.getElementById('no-menu-found');
+  const menuGrid = document.getElementById('menu-grid');
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const targetFilter = button.getAttribute('data-filter');
+
+      filterButtons.forEach((btn) => {
+        btn.classList.remove('bg-brand-red', 'text-white', 'shadow-sm');
+        btn.classList.add('text-brand-muted', 'hover:text-brand-dark', 'hover:bg-brand-surface');
+      });
+      button.classList.add('bg-brand-red', 'text-white', 'shadow-sm');
+      button.classList.remove('text-brand-muted', 'hover:text-brand-dark', 'hover:bg-brand-surface');
+
+      let visibleCount = 0;
+      menuCards.forEach((card) => {
+        const itemCategory = card.getAttribute('data-category');
+        const parentWrapper = card.closest('.reveal-on-scroll') as HTMLElement | null;
+        const targetElement = parentWrapper || card;
+
+        if (targetFilter === 'all' || itemCategory === targetFilter) {
+          targetElement.style.display = 'block';
+          visibleCount++;
+        } else {
+          targetElement.style.display = 'none';
+        }
+      });
+
+      if (noMenuFound) {
+        if (visibleCount === 0) {
+          noMenuFound.classList.remove('hidden');
+          menuGrid?.classList.add('hidden');
+        } else {
+          noMenuFound.classList.add('hidden');
+          menuGrid?.classList.remove('hidden');
+        }
+      }
+    });
+  });
+</script>

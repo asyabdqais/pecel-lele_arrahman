@@ -1,0 +1,73 @@
+---
+import type { MenuItem } from '../data/menu';
+import { createWhatsAppOrderUrl } from '../data/restaurant';
+
+interface Props {
+  item: MenuItem;
+}
+
+const { item } = Astro.props;
+const whatsappOrderLink = createWhatsAppOrderUrl(item.name);
+---
+
+<div
+  class="menu-card group flex flex-col justify-between bg-white rounded-2xl overflow-hidden shadow-editorial border border-brand-border hover:shadow-hoverCard hover:-translate-y-0.5 transition-all duration-300"
+  data-category={item.category}
+>
+  <!-- Image Container with Consistent Ratio -->
+  <div class="relative w-full h-48 sm:h-52 bg-brand-surface overflow-hidden">
+    <img
+      src={item.image}
+      alt={`Sajian ${item.name} Pecel Lele Al Rahman`}
+      class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+      width="400"
+      height="260"
+      loading="lazy"
+    />
+
+    <!-- Badge if present in reference -->
+    {item.badge && (
+      <div class="absolute top-3 left-3 z-10">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-[#FFF9F0]/95 backdrop-blur-sm text-brand-deep border border-brand-border shadow-sm">
+          {item.badge}
+        </span>
+      </div>
+    )}
+  </div>
+
+  <!-- Content Section -->
+  <div class="p-5 flex flex-col flex-grow justify-between">
+    <div>
+      <div class="flex items-baseline justify-between gap-2">
+        <h3 class="font-editorial text-lg sm:text-xl text-brand-dark group-hover:text-brand-red transition-colors">
+          {item.name}
+        </h3>
+        <span class="text-[11px] font-semibold uppercase tracking-wider text-brand-muted flex-shrink-0">
+          {item.categoryLabel}
+        </span>
+      </div>
+
+      <p class="mt-2 text-xs sm:text-sm text-brand-muted line-clamp-2 leading-relaxed">
+        {item.description}
+      </p>
+    </div>
+
+    <!-- Action Section -->
+    <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between">
+      <span class="text-xs font-medium text-brand-muted">Sajian Segar</span>
+      <a
+        href={whatsappOrderLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 py-1.5 px-3.5 rounded-full bg-brand-surface hover:bg-brand-red text-brand-dark hover:text-white border border-brand-border hover:border-brand-red font-medium text-xs transition-all duration-200 group/btn"
+        aria-label={`Pesan ${item.name} via WhatsApp`}
+      >
+        <span>Pesan Menu Ini</span>
+        <svg class="w-3.5 h-3.5 fill-current text-brand-red group-hover/btn:text-white transition-colors" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</div>

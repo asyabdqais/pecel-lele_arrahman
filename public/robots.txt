@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pecellelealrahman.com/sitemap.xml
+

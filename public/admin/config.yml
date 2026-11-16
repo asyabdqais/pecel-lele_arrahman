@@ -1,0 +1,104 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Mendukung pengujian lokal via `npx decap-server`
+local_backend: true
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+locale: "id"
+
+collections:
+  - name: "pengaturan"
+    label: "Profil & Informasi Warung"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "restaurant"
+        label: "Informasi Restoran"
+        file: "src/data/restaurant.json"
+        fields:
+          - { label: "Nama Usaha", name: "name", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Badge Header", name: "badge", widget: "string" }
+          - label: "Foto Utama (Beranda / Hero)"
+            name: "heroImage"
+            widget: "image"
+            hint: "Foto makanan utama yang tampil di bagian atas halaman (Beranda). Disarankan resolusi minimal 800x600px, format JPG/PNG."
+            media_library:
+              config:
+                multiple: false
+          - label: "Foto Tentang Kami"
+            name: "aboutImage"
+            widget: "image"
+            hint: "Foto suasana warung atau aktivitas penyajian yang tampil di section Tentang Kami. Disarankan resolusi minimal 600x500px."
+            media_library:
+              config:
+                multiple: false
+          - { label: "Judul Sambutan", name: "welcomeHeading", widget: "string" }
+          - { label: "Deskripsi Sambutan", name: "welcomeDescription", widget: "list" }
+          - { label: "WhatsApp Kasir (Contoh: 081275070044)", name: "phone", widget: "string" }
+          - { label: "Format Telepon Tampilan", name: "phoneFormatted", widget: "string" }
+          - { label: "Nomor WhatsApp (dengan 62)", name: "whatsappNumber", widget: "string" }
+          - { label: "Alamat Lengkap", name: "address", widget: "string" }
+          - { label: "Kilometer Lintas", name: "locationKm", widget: "string" }
+          - { label: "Deskripsi Lokasi", name: "locationDescription", widget: "text" }
+          - { label: "Username Instagram", name: "instagramHandle", widget: "string" }
+          - { label: "Link Instagram", name: "instagramUrl", widget: "string" }
+          - { label: "Link Google Maps", name: "googleMapsUrl", widget: "string" }
+          - { label: "Jam Buka Operasional", name: "openingHours", widget: "string" }
+          - { label: "Visi Kami", name: "vision", widget: "text" }
+          - { label: "Misi Kami", name: "missions", widget: "list" }
+          - { label: "Prinsip / Keunggulan Layanan", name: "principles", widget: "list" }
+
+  - name: "menu"
+    label: "Katalog Menu"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "daftar_menu"
+        label: "Daftar Menu Hidangan"
+        file: "src/data/menu.json"
+        fields:
+          - label: "Daftar Hidangan"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "ID Unik (slug)", name: "id", widget: "string" }
+              - { label: "Nama Hidangan", name: "name", widget: "string" }
+              - label: "Kategori"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Menu Utama", value: "utama" }
+                  - { label: "Menu Pelengkap", value: "pelengkap" }
+                  - { label: "Minuman", value: "minuman" }
+              - { label: "Label Kategori", name: "categoryLabel", widget: "string" }
+              - { label: "Badge Khusus (Opsional)", name: "badge", widget: "string", required: false }
+              - { label: "Deskripsi Hidangan", name: "description", widget: "text" }
+              - { label: "Foto Hidangan", name: "image", widget: "image" }
+
+  - name: "testimoni"
+    label: "Ulasan Pelanggan"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "daftar_testimoni"
+        label: "Daftar Ulasan"
+        file: "src/data/testimonials.json"
+        fields:
+          - label: "Daftar Ulasan Pelanggan"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Nama Pelanggan", name: "name", widget: "string" }
+              - { label: "Peran / Keterangan", name: "role", widget: "string" }
+              - { label: "Isi Ulasan", name: "text", widget: "text" }
+              - { label: "Rating Bintang (1-5)", name: "rating", widget: "number", value_type: "int", min: 1, max: 5 }
+

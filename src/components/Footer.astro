@@ -1,0 +1,97 @@
+---
+import { restaurantData, createWhatsAppOrderUrl } from '../data/restaurant';
+
+const orderUrl = createWhatsAppOrderUrl();
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-brand-dark text-brand-cream/80 pt-12 pb-8 border-t border-brand-dark/90">
+  <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-brand-cream/10">
+      
+      <!-- Brand Bio (5 cols) -->
+      <div class="lg:col-span-5 flex flex-col items-start">
+        <a href="#beranda" class="flex items-center gap-3 mb-3 group">
+          <div class="w-9 h-9 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+            <img src="/images/logo.svg" alt={`Logo ${restaurantData.name}`} class="w-full h-full object-cover" width="36" height="36" />
+          </div>
+          <span class="font-editorial text-xl text-white tracking-tight group-hover:text-brand-gold transition-colors">
+            {restaurantData.name}
+          </span>
+        </a>
+        <p class="text-xs sm:text-sm text-brand-cream/70 leading-relaxed max-w-sm mb-5">
+          Warung makan tenda autentik khas Nusantara di jalur lintas Pekanbaru – Bangkinang KM 24. Spesialis pecel lele gurih, ayam penyet pedas uleg, dan bebek rempah.
+        </p>
+
+        <!-- Social & Chat Pills -->
+        <div class="flex items-center gap-3">
+          <a
+            href={orderUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-1.5 rounded-full text-xs font-semibold bg-brand-red hover:bg-brand-deep text-white flex items-center gap-2 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+            aria-label="Pesan via WhatsApp"
+          >
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+            <span>WhatsApp</span>
+          </a>
+
+          <a
+            href={restaurantData.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-1.5 rounded-full text-xs font-semibold bg-white/10 hover:bg-white/20 text-white flex items-center gap-2 transition-all duration-300 hover:-translate-y-0.5"
+            aria-label="Instagram Pecel Lele Al Rahman"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2" />
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-width="2" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <span>Instagram</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Nav Links (3 cols) -->
+      <div class="lg:col-span-3">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-brand-gold mb-3">Navigasi</h3>
+        <ul class="space-y-2 text-xs sm:text-sm text-brand-cream/70">
+          <li><a href="#beranda" class="hover:text-white transition-colors">Beranda</a></li>
+          <li><a href="#tentang" class="hover:text-white transition-colors">Tentang Kami</a></li>
+          <li><a href="#menu" class="hover:text-white transition-colors">Katalog Menu</a></li>
+          <li><a href="#testimoni" class="hover:text-white transition-colors">Ulasan Pelanggan</a></li>
+          <li><a href="#kontak" class="hover:text-white transition-colors">Lokasi & Kontak</a></li>
+        </ul>
+      </div>
+
+      <!-- Confirmed Business Info (4 cols) -->
+      <div class="lg:col-span-4">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-brand-gold mb-3">Informasi Warung</h3>
+        <div class="space-y-2.5 text-xs sm:text-sm text-brand-cream/70">
+          <div>
+            <span class="block text-white font-medium">Jam Buka:</span>
+            <span>{restaurantData.openingHours}</span>
+          </div>
+          <div>
+            <span class="block text-white font-medium">Alamat:</span>
+            <span>{restaurantData.address}</span>
+          </div>
+          <div>
+            <span class="block text-white font-medium">Kontak Pemesanan:</span>
+            <a href={orderUrl} class="hover:text-brand-gold transition-colors">{restaurantData.phoneFormatted}</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="mt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-brand-cream/50 gap-2 text-center sm:text-left">
+      <p>© {currentYear} {restaurantData.name}. Semua hak cipta dilindungi.</p>
+      <p>{restaurantData.locationKm}</p>
+    </div>
+  </div>
+</footer>

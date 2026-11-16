@@ -1,0 +1,94 @@
+---
+import { restaurantData } from '../data/restaurant';
+
+const pillars = [
+  {
+    title: 'Bahan Segar & Sambal Dadakan',
+    desc: 'Lele dan ayam dipasok segar setiap hari, disajikan panas dengan sambal uleg cabai rawit asli tanpa bahan pengawet.'
+  },
+  {
+    title: 'Porsi Pas & Harga Jujur',
+    desc: 'Pilihan santap mengenyangkan yang ramah di kantong bagi para pengendara jalur lintas maupun rombongan keluarga.'
+  },
+  {
+    title: 'Tempat Nyaman & Parkir Leluasa',
+    desc: 'Warung tenda bersih tepi jalan lintas KM 24 dengan area parkir aman dan luas untuk motor, mobil pribadi, hingga minibus.'
+  }
+];
+---
+
+<section id="tentang" class="py-16 md:py-24 bg-white border-b border-brand-border/60 relative overflow-hidden">
+  <!-- Centered container with comfortable horizontal margins -->
+  <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      
+      <!-- Left Column: Authentic Dining Atmosphere Photo (5 cols) -->
+      <div class="lg:col-span-5 relative reveal-on-scroll">
+        <div class="relative mx-auto max-w-md lg:max-w-none">
+          <div class="editorial-frame group">
+            <div class="rounded-xl overflow-hidden bg-brand-dark/5">
+              <img
+                src={restaurantData.aboutImage || "/images/about-warung.jpg"}
+                alt="Suasana Bersantap Hangat di Warung Tenda Pecel Lele Al Rahman KM 24"
+                class="w-full h-[320px] sm:h-[380px] object-cover group-hover:scale-105 transition-transform duration-700"
+                width="500"
+                height="380"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-3 bg-transparent">
+              <span class="block text-xs font-semibold uppercase tracking-wider text-brand-deep">Warung Tenda Autentik</span>
+              <p class="text-xs text-brand-muted mt-0.5">
+                Tempat singgah nyaman untuk santap bersama di jalur lintas Pekanbaru – Bangkinang KM 24.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Editorial Story & Distinctive Pillars (7 cols) -->
+      <div class="lg:col-span-7 flex flex-col items-start text-left reveal-on-scroll delay-150">
+        
+        <!-- Tag Badge -->
+        <div class="tag-badge mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+          <span>Tentang Kami</span>
+        </div>
+
+        <!-- Section Title (DM Serif Display) -->
+        <h2 class="font-editorial text-3xl sm:text-4xl text-brand-dark tracking-tight leading-tight">
+          Kenali Lebih Dekat <span class="text-brand-red bg-clip-text text-transparent bg-gradient-to-r from-brand-red to-brand-deep">Pecel Lele Al Rahman</span>
+        </h2>
+
+        <!-- Authentic Narrative (Non-repetitive) -->
+        <div class="mt-5 space-y-3.5 text-brand-muted text-sm sm:text-base leading-relaxed">
+          <p>
+            Pecel Lele Al Rahman hadir di tepi jalur lintas Pekanbaru – Bangkinang KM 24 sebagai tempat persinggahan yang hangat bagi siapa saja yang ingin menikmati hidangan khas Nusantara dengan bumbu rempah autentik.
+          </p>
+          <p>
+            Dengan dedikasi pada kebersihan, cita rasa tradisional, dan pelayanan cepat, kami berkomitmen memberikan pengalaman makan yang mengenyangkan dan memuaskan bagi setiap pelanggan yang singgah.
+          </p>
+        </div>
+
+        <!-- 3 Distinctive Pillars (Replaces repetitive lists) -->
+        <div class="mt-8 pt-6 border-t border-brand-border w-full space-y-3.5">
+          {pillars.map((item, idx) => (
+            <div class="p-4 rounded-xl bg-gradient-to-r from-brand-surface via-brand-surface/70 to-white border border-brand-border/80 hover:border-brand-red/30 transition-all duration-300">
+              <div class="flex items-center gap-2.5 mb-1">
+                <span class="w-5 h-5 rounded-full bg-brand-red/10 text-brand-red flex items-center justify-center text-xs font-bold flex-shrink-0">
+                  {idx + 1}
+                </span>
+                <h3 class="font-editorial text-base text-brand-dark">{item.title}</h3>
+              </div>
+              <p class="text-xs sm:text-sm text-brand-muted leading-relaxed pl-7.5">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

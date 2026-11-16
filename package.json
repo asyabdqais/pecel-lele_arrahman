@@ -3,12 +3,12 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "node --env-file=.env ./node_modules/astro/astro.js dev",
-    "start": "node --env-file=.env ./node_modules/astro/astro.js dev",
-    "build": "node --env-file=.env ./node_modules/astro/astro.js build",
-    "preview": "node --env-file=.env ./node_modules/astro/astro.js preview",
+    "dev": "node scripts/astro-cli.js dev",
+    "start": "node scripts/astro-cli.js dev",
+    "build": "node scripts/astro-cli.js build",
+    "preview": "node scripts/astro-cli.js preview",
     "cms": "npx decap-server",
-    "astro": "node --env-file=.env ./node_modules/astro/astro.js"
+    "astro": "node scripts/astro-cli.js"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.4",

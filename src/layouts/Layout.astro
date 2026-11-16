@@ -90,7 +90,7 @@ const schemaData = {
     <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
     <!-- Netlify Identity Widget for Decap CMS -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body class="bg-[#FFF9F0] text-brand-dark font-sans selection:bg-brand-red selection:text-white">
     <slot />

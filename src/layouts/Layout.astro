@@ -8,23 +8,34 @@ interface Props {
   image?: string;
 }
 
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : (process.env.URL || 'https://pecellelearrahman.netlify.app');
+
 const {
-  title = `${restaurantData.name} - ${restaurantData.tagline}`,
+  title = `${restaurantData.name} KM 24 - Kuliner Khas Jalur Pekanbaru - Bangkinang`,
   description = `${restaurantData.name}: Spesialis Pecel Lele gurih renyah, Ayam Penyet sambal uleg pedas mantap, dan Bebek Goreng bumbu rempah di ${restaurantData.locationKm}. Buka setiap hari 10.00 - 22.00 WIB.`,
   image = '/images/hero-pecel-lele.jpg'
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://pecellelealrahman.com');
-const imageURL = new URL(image, canonicalURL).toString();
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const imageURL = new URL(image, siteUrl).toString();
 
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
   "name": restaurantData.name,
+  "alternateName": [
+    "Pecel Lele Al-Rahman Uniang",
+    "Pecel Lele Al Rahman KM 24",
+    "Pecel Lele Al Rahman Pekanbaru Bangkinang"
+  ],
   "description": description,
   "image": imageURL,
   "telephone": "+6281275070044",
-  "servesCuisine": "Indonesian",
+  "servesCuisine": [
+    "Indonesian",
+    "Javanese",
+    "Traditional Indonesian Food"
+  ],
   "priceRange": "Rp 5.000 - Rp 30.000",
   "address": {
     "@type": "PostalAddress",
@@ -48,7 +59,7 @@ const schemaData = {
       "closes": "22:00"
     }
   ],
-  "url": "https://pecellelealrahman.com",
+  "url": siteUrl,
   "sameAs": [
     restaurantData.instagramUrl
   ]
@@ -67,6 +78,7 @@ const schemaData = {
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta name="keywords" content="pecel lele al rahman, pecel lele al-rahman uniang, pecel lele pekanbaru bangkinang, kuliner km 24, ayam penyet pekanbaru, bebek goreng kampar, kuliner jalur lintas riau, warung tenda enak" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="theme-color" content="#B91F24" />
 
